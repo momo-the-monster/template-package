@@ -14,11 +14,11 @@ concurrency:
   cancel-in-progress: true
   
 env:
-  listPublishDirectory: "docs"
-  listAuthorName: "Momo the Monster"
-  listName: "Listing for My Demo Package"
-  listUrl: "https://momo-the-monster.github.io/template-package/index.json"
-  pathToCi: "ci"
+  listPublishDirectory: docs
+  listAuthorName: Momo the Monster
+  listName: Listing for My Demo Package
+  listUrl: https://momo-the-monster.github.io/template-package/index.json
+  pathToCi: ci
 
 jobs:
   
@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
           
       - name: Build Package Version Listing
-        run: ${{env.pathToCi}}/build.cmd BuildRepoListing --root ${{env.pathToCi}} --list-publish-directory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --list-author-name ${{env.listAuthorName}} --list-name ${{env.listName}} --list-url ${{env.listUrl}}
+        run: "${{env.pathToCi}}/build.cmd BuildRepoListing --root ${{env.pathToCi}} --list-publish-directory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --list-author-name ${{env.listAuthorName}} --list-name ${{env.listName}} --list-url ${{env.listUrl}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
