@@ -37,7 +37,7 @@ jobs:
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd BuildRepoListing'
-        run: ci/build.cmd BuildRepoListing --root ci
+        run: ci/build.cmd BuildRepoListing --root ci --listPublishDirectory $GITHUB_WORKSPACE/docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
