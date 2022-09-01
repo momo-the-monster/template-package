@@ -52,8 +52,8 @@ jobs:
           --root ${{env.pathToCi}} 
           --listPublishDirectory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} 
           --listAuthorName ${{env.listAuthorName}} 
-          --listName ${{listName}} 
-          --listUrl ${{listUrl}}
+          --listName ${{env.listName}} 
+          --listUrl ${{env.listUrl}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
