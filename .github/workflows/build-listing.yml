@@ -16,7 +16,7 @@ concurrency:
 env:
   listPublishDirectory: docs
   listAuthorName: Momo the Monster
-  listName: Xisting for My Demo Package
+  listName: Listing for My Demo Package
   listUrl: https://momo-the-monster.github.io/template-package/index.json
   pathToCi: ci
 
