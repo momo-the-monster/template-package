@@ -1,4 +1,4 @@
-name: External Packaging Action Call
+name: Build Repo Listing
 
 on: [workflow_dispatch]
 
