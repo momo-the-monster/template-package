@@ -14,11 +14,11 @@ concurrency:
   cancel-in-progress: true
   
 env:
-  listPublishDirectory: docs
-  listAuthorName: Momo the Monster
-  listName: Listing for My Demo Package
-  listUrl: https://momo-the-monster.github.io/template-package/index.json
-  pathToCi: ci
+  listPublishDirectory: "docs"
+  listAuthorName: "Momo the Monster"
+  listName: "Listing for My Demo Package"
+  listUrl: "https://momo-the-monster.github.io/template-package/index.json"
+  pathToCi: "ci"
 
 jobs:
   
