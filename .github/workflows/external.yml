@@ -12,6 +12,13 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+  
+env:
+  listPublishDirectory: docs
+  listAuthorName: Momo the Monster
+  listName: Listing for My Demo Package
+  listUrl: https://momo-the-monster.github.io/template-package/index.json
+  pathToCi: ci
 
 jobs:
   
@@ -27,27 +34,37 @@ jobs:
       - uses: actions/checkout@v3 # check out automation repo
         with:
           repository: momo-the-monster/package-list-action
-          path: ci
+          path: ${{env.pathToCi}}
           clean: false # otherwise the local repo will no longer be checked out
-      - name: Cache .nuke/temp, ~/.nuget/packages
+          
+      - name: Restore Cache
         uses: actions/cache@v2
         with:
           path: |
-            ci/.nuke/temp
+            ${{env.pathToCi}}/.nuke/temp
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.cmd BuildRepoListing'
-        run: ci/build.cmd BuildRepoListing --root ci --listPublishDirectory $GITHUB_WORKSPACE/docs
+          
+      - name: Build Package Version Listing
+        run: |
+          ${{env.pathToCi}}/build.cmd 
+          BuildRepoListing 
+          --root ${{env.pathToCi}} 
+          --listPublishDirectory $GITHUB_WORKSPACE/${{env.listPublishDirectory}} 
+          --listAuthorName ${{env.listAuthorName}} 
+          --listName ${{listName}} 
+          --listUrl ${{listUrl}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
       - name: Setup Pages
         uses: actions/configure-pages@v2
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
-          path: 'docs'
+          path: ${{env.pathToDocs}}
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
