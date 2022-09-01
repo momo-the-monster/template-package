@@ -1,0 +1,9 @@
+on: [workflow_dispatch]
+
+jobs:
+  get_version_job:
+    runs-on: ubuntu-latest
+    name: A job to get the version
+    steps:
+      - uses: momo-the-monster/package-list-action@main
+      - run: echo version ${{ steps.foo.outputs }}
