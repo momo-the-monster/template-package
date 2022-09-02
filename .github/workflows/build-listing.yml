@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
   
 env:
-  listPublishDirectory: docs
+  listPublishDirectory: Website
   listAuthorName: Momo the Monster
   listName: Listing for My Demo Package
   listUrl: https://momo-the-monster.github.io/template-package/index.json
