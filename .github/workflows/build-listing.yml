@@ -1,6 +1,8 @@
 name: Build Repo Listing
 
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+  release:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
