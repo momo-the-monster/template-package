@@ -1,6 +1,6 @@
-# 🎁 VPM Package Template
+# VPM Package Template
 
-Test repo for making packages
+Starter for making Packages
 
 ## ▶ Getting Started
 
@@ -23,3 +23,6 @@ Automatic on merge to main
 Explain what the listing is
 
 Talk through automation
+
+## Status
+![GitHub deployments](https://img.shields.io/github/deployments/momo-the-monster/template-package/github-pages?label=Generate%20Listing)
